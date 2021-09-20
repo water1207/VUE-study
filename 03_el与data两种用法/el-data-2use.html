@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>el与data两种用法</title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+
+</head>
+<body>
+    <div id="root">
+        <h1>{{name}}</h1>
+    </div>
+</body>
+
+<script type="text/javascript">
+    Vue.config.productionTip = false;
+    // const v = new Vue({
+    //     // el: '#root',
+    //     data: {
+    //         name: 'Lee'
+    //     }
+    // })
+    // v.$mount('#root')
+    // console.log(v);
+
+    new Vue({
+        el: '#root',
+        // 1. data 对象式
+        /* data: {
+            name: 'Lee'
+        } */
+        
+        //2. data 函数式
+        data:function(){  //data(){}
+            return {
+                name: 'Lee'
+            }
+        }
+    })
+
+</script>
+</html>

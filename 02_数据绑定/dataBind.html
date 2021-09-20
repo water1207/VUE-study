@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>hello vue</title>
+    <title>数据绑定</title>
     <script type="text/javascript" src="../js/vue.js"></script> 
 
 </head>
 <body>
     <div id="root">
-        <h1>插值语法</h1>   
-        <h3>hello, {{name}}</h3>
-        <hr>
-        <a v-bind:href="url">click me</a>
+        单向数据绑定 <input type="text" v-bind:value="name" placeholder=""><br>
+        双向数据绑定 <input type="text" v-model:value="name" placeholder="">  
+        <!-- :value="name" // v-model="name" -->
     </div>
 </body>
 
@@ -21,8 +20,7 @@
     new Vue({
         el: '#root',
         data: {
-            name: 'Chillin',
-            url: 'http://www.baidu.com'
+            name: 'licheng'
         }
     })
 </script>
