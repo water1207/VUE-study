@@ -42,6 +42,10 @@
                     console.log('isHot被修改了', newValue, oldVaule)
                 }
             },
+            // 简写
+            /* isHot(newValue, oldValue) {
+                console.log('isHot被修改了', newValue, oldValue)
+            }, */
             info: {  //计算属性也能检测
                 immediate: true, //初始化时让handler调用一下
                 handler(newValue, oldVaule){
@@ -58,5 +62,9 @@
         }
     }) */
     
+    //简写
+    /* vm.$watch('isHot', function(nv, ov){
+        console.log('isHot被修改了', nv, ov);
+    }) */
 </script>
 </html>
