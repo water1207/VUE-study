@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+    <style>
+        .basic {
+            height: 200px;
+            width: 400px;
+        }
+        .red {
+            background-color: red;
+        }
+        .blue {
+            background-color: blue;
+        }
+        .green {
+            background-color: green;
+        }
+
+        .s1 {
+            border-radius: 10px;
+        }
+        .s2 {
+            font-style: italic;
+        }
+        .s3 {
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <div class="basic" :class="color" @click='changeColor()'>
+            <p>hello world</p>
+        </div> <br>
+
+        <div class="basic" :class="classArr">
+            <p>hello world</p>
+        </div><br>
+
+        <div class="basic" :style="styleObj">
+            <p>hello world</p>
+        </div>
+    </div> 
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            color: "red",
+            classArr: ['s1', 's2', 's3'],
+            classObj: {
+                s3: true,
+                s1: true
+            },
+            styleObj: {
+                fontSize: '40px',
+                color: 'blue',
+                backgroundColor: 'organze'
+            }
+        },
+        methods: {
+            changeColor() {
+                const arr =['red', 'blue', 'green'];
+                const index = Math.floor(Math.random() * 3);
+                this.color = arr[index];
+            }
+        },
+    })
+</script>
+</html>
