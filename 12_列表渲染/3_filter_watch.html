@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表渲染</title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+
+</head>
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <input type="text" placeholder="请输入名字" v-model="keyWord">
+        <ul>
+            <li v-for="p in filPersons" :key="p.id">
+                {{ p.name }} - {{ p.age }}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            keyWord: '',
+            persons: [
+                {id:'001', name:'马冬梅', age:18,sex:'女'},
+                {id:'002', name:'周冬雨', age:28,sex:'女'},
+                {id:'003', name:'周杰伦', age:38,sex:'男'},
+                {id:'003', name:'叶湘伦', age:38,sex:'男'}
+            ],
+            filPersons: []
+        },
+        watch: {
+            keyWord: {
+                immediate: true,
+                handler(val) {
+                    console.log('keyWord改变了',val);
+                    this.filPersons = this.persons.filter((p) => {    //过滤
+                        //xxx.indexOf(x) 若为-1 则xxx中不包含x, 注意包含空字符
+                        return p.name.indexOf(val) !== -1;
+                    })
+                }
+            }
+        }
+    })
+</script>
+</html>
