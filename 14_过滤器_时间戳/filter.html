@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间戳过滤器</title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.10.6/dayjs.min.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>Now-computed: {{ fmtTime }} </h2>
+        <h2>Now-methods: {{ getFmtTime() }} </h2>
+        <h2>Now-filters: {{ time | timeFormater}}</h2>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            time: 2647892666210,
+        },
+        computed: {
+            fmtTime() {
+                return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+            }
+        },
+        methods: {
+            getFmtTime() {
+                return dayjs(this.time).format('YYYY-MM-DD HH:mm:ss')
+            }
+        },
+        filters: {
+            timeFormater(value){
+                return dayjs(value).format('YYYY-MM-DD HH:mm:ss')
+            }
+        }
+    })
+</script>
+</html>
