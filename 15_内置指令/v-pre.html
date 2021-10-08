@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-pre</title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+
+</head>
+<body>
+    <div id="root">
+        <!-- v-pre 跳过节点 加快编译 -->
+        <h2 v-pre>当前n的值: {{ n }}</h2>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            name: 'Lee',
+            n: 0
+        }
+    })
+</script>
+</html>
