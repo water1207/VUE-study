@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE.set()方法</title>
+    <script type="text/javascript" src="../js/vue.js"></script> 
+
+</head>
+<body>
+    <div id="root">
+        <h2>name: {{ name }}</h2>
+        <h2>address: {{ address }}</h2> 
+        <hr>
+        <h2>studentName: {{ student.name }}</h2>
+        <!-- Vue.set(vm.student,'sex','man') -->
+        <h2>Sex: {{ student.sex }}</h2> 
+        <h2>age: true {{student.age.rAge }}, fake {{ student.age.fAge }}</h2>
+        <h2>Friends</h2>    
+        <ul>
+            <li v-for="(f,index) in student.friends" :key="index">
+               {{ index }} . {{ f.name }} -- {{ f.age }}
+            </li>
+        </ul>
+    </div>
+</body>
+
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {  
+            name: 'Lee',
+            address: 'ShangHai',
+            student: {
+                name: 'Gary',
+                age: {
+                    rAge: 40,
+                    fAge: 18
+                },
+                friends: [
+                    {name: 'jerry', age: 35},
+                    {name: 'tony', age:36}
+                ]
+            }
+        }
+    })
+</script>
+</html>
