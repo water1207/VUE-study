@@ -11,6 +11,7 @@
 <body>
     <div id="root">
         <h2 :style="{opacity: opacity}"  >Hello World~</h2>
+        <button @click="stop()">Stop</button>
     </div>
 </body>
 
@@ -20,36 +21,20 @@
         data: {
             opacity: 1
         },
-        beforeCreate() {
-            console.log('beforeCreate')
-        },
-        created() {
-            console.log('created')
-        },
-        beforeMount() {
-            console.log('beforeMount')
+        methods: {
+            stop() {
+                this.$destroy()
+            }
         },
         mounted() {
-            setInterval(() => {
+            this.timer = setInterval(() => {
                 this.opacity -= 0.01
                 if(this.opacity <= 0) this.opacity =  1
             },16)
         },
-        beforeUpdate() {
-            console.log('beforeUpdate');
-            // 数据新的，页面还没更新，未保持同步
-        },
-        updated() {
-            console.log('updated')
-            // 数据与页面视图已同步
-        },
         beforeDestroy() {
-            console.log('beforeDestroy')
+            clearInterval(this.timer)
         },
-        destroyed() {
-            console.log('destroyed')
-        }
-
     })
 </script>
 </html>
