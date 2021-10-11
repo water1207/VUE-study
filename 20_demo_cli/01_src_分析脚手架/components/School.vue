@@ -8,7 +8,6 @@
 
 <script>
   const School = {
-    name: 'School',
     data() {
         return {
             name: 'hdu',
@@ -25,7 +24,5 @@
 </script>
 
 <style>
-  .demo {
-    background-color: #42b983;
-  }
+
 </style>

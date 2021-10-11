@@ -1,21 +1,29 @@
 <template>
   <div>
-    <img src="./assets/logo.png" alt="">
-    <School></School>
-    <Student></Student>
+    <h1 v-text="msg" ref="title"></h1>
+    <button @click="showDom">Click me</button>
+    <School />
   </div>
 </template>
 
 <script>
   import School from './components/School.vue'
-  import Student from "./components/Student";
 
   export default {
     name: 'App',
+    data() {
+        return {
+            msg: 'Hello world'
+        }
+    },
     components: {
-      School,
-      Student
-    }
+      School
+    },
+    methods: {
+      showDom() {
+        console.log(this.$refs.title);
+      }
+    },
   }
 </script>
 
