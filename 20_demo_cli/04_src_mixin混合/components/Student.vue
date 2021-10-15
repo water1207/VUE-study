@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h2 @click="showName">学生姓名：{{name}}</h2>
+    <h2>学生姓名：{{name}}</h2>
     <h2>学生性别：{{sex}} </h2>
   </div>
 
 </template>
 
 <script>
-  import {mixin} from '../mixin'
+  import {mixin} from '../../src/mixin'
 
   export default {
     name: "Student",
@@ -16,13 +16,7 @@
         name: '张三',
         sex: '男'
       }
-    },
-    methods: {
-      showName(){
-        alert(this.name);
-      }
-    },
-    mixins: [mixin]
+    }
   }
 </script>
 
