@@ -7,10 +7,9 @@
 </template>
 
 <script>
-  import pubsub from 'pubsub-js'
-  import MyHeader from "./components/MyHeader"
-  import MyList from "./components/MyList"
-  import MyFooter from "./components/MyFooter"
+  import MyHeader from "./components/MyHeader";
+  import MyList from "./components/MyList";
+  import MyFooter from "./components/MyFooter";
 
   export default {
     name: 'App',
@@ -35,13 +34,7 @@
             todo.done = !todo.done
         })
       },
-      updateTodo(id, title) {
-        this.todos.forEach((todo) => {
-          if (todo.id === id)
-            todo.title  = title
-        })
-      },
-      delTodo(_, id) {
+      delTodo(id) {
         this.todos = this.todos.filter((todo) => {
           return todo.id != id
         })
@@ -56,16 +49,6 @@
           return !todo.done
         })
       }
-    },
-    mounted() {
-      this.$bus.$on('updateTodo', this.updateTodo)
-    },
-    beforeMount() {
-      this.pubId = pubsub.subscribe('delTodo', this.delTodo)
-    },
-    beforeDestroy() {
-      this.$bus.$off('updateTodo')
-      pubsub.unsubscribe(this.pubId)
     },
     watch:{
       todos: {

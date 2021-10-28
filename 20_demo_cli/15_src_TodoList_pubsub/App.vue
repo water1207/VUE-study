@@ -35,12 +35,6 @@
             todo.done = !todo.done
         })
       },
-      updateTodo(id, title) {
-        this.todos.forEach((todo) => {
-          if (todo.id === id)
-            todo.title  = title
-        })
-      },
       delTodo(_, id) {
         this.todos = this.todos.filter((todo) => {
           return todo.id != id
@@ -57,14 +51,10 @@
         })
       }
     },
-    mounted() {
-      this.$bus.$on('updateTodo', this.updateTodo)
-    },
     beforeMount() {
       this.pubId = pubsub.subscribe('delTodo', this.delTodo)
     },
     beforeDestroy() {
-      this.$bus.$off('updateTodo')
       pubsub.unsubscribe(this.pubId)
     },
     watch:{

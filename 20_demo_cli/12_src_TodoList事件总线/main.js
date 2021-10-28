@@ -12,5 +12,12 @@ new Vue({
   beforeCreate() {
     Vue.prototype.$bus = this //安装全局事件总线
   }
+  // render(createElement) {
+  //   return createElement('h1', 'hello');
+  // },
 })
 
+// new Vue({
+//   el: '#app',
+//   render: h => h(App),
+// }).$mount('#app')
